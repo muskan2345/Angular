@@ -1,0 +1,12 @@
+@for $var from 1 through 4{
+
+
+    .p#{$var}{
+        padding: $var * 20px;
+        color: green;
+        border: $var*1px solid black;
+        width: $var *60px;
+        height: $var *5px;
+    }
+
+}

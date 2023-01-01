@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        div{
+            border: 2px solid black;
+           /* display: inline-block; */
+            height: 10cm;
+            width: 10cm;
+            margin: 5px;
+        }
+        section{
+            display: flex;
+        }
+        img{
+            height: 10cm;
+            width: 10cm;
+        }
+        /* img[src=""]{
+            height: 0;
+            width: 0;
+        } */
+    </style>
+
+</head>
+<body>
+    <section>
+
+    <div id="div1" draggable="true">
+        <img id="img1" src="angular-1.webp" alt="" draggable="true"  >
+    </div>
+
+
+    <div id="div2" draggable="true" ondrop="drop2()">
+        <img id="img2" src="" alt="" draggable="true" ondrop="drop2()">
+    </div>
+    </section>
+    
+
+
+    <script>
+           
+
+
+        var img1=document.getElementById("img1");
+        var div1=document.getElementById("div1");
+        
+        var img2=document.getElementById("img2");
+        var div2=document.getElementById("div2");
+
+        window.onload=sessionStorage.setItem("linkk",img1.src);
+       
+        img1.addEventListener("mousedown",drag1,true);
+        img1.addEventListener("mouseup",drop1,true);
+        img2.addEventListener("mousedown",drag2,true);
+        img2.addEventListener("mouseup",drop2,true);
+
+
+
+        function drag1(e){
+           
+            console.log("drag1 called");
+            img1.src="";
+           
+        }
+
+        function drag2(e){
+            console.log("drag2 called");
+            img2.src="";
+            
+        }
+        function drop1(e){
+            console.log("drop1 called");
+            img1.src=sessionStorage.getItem("linkk");
+        }
+        function drop2(e){
+     
+            console.log("drop2 called");
+            img2.src=sessionStorage.getItem("linkk");
+        }
+
+
+       
+
+
+    </script>
+
+
+</body>
+</html>

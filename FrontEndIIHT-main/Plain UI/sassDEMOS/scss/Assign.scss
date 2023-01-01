@@ -1,0 +1,16 @@
+$mediaColor:lavender;
+$mediaFontSize:24px;
+
+@media (max-width:600px) {
+    .logo{
+        width: 400px;
+        margin: 50px;
+    }
+    h1{
+        color: $mediaColor;
+        font-size: $mediaFontSize;
+        background-color: green;
+    }
+
+    
+}

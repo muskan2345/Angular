@@ -1,0 +1,17 @@
+$favColor:red;
+
+// #hello{
+//     background-color: $favColor;
+// }
+
+// #hello{
+//     color: if((2+2==5),green,red);
+// }
+
+.c1{
+    @if 1+1==3 {border: 1px dashed Ored;}
+    @if 3 >2
+    {border:3px solid salmon;}
+    @if null {border:4px double Oblue;}
+    
+    }

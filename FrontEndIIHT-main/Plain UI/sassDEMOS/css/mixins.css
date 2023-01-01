@@ -1,0 +1,21 @@
+div {
+  height: 100px;
+  width: 100px;
+  background-color: skyblue;
+  margin: 60px auto;
+  animation: skyblue-to-pink 2s ease infinite;
+}
+
+@keyframes skyblue-to-pink {
+  0% {
+    background-color: skyblue;
+  }
+  50% {
+    background-color: pink;
+  }
+  100% {
+    background-color: skyblue;
+  }
+}
+
+/*# sourceMappingURL=mixins.css.map */

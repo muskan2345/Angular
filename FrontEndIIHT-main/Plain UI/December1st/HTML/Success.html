@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <p id="name"></p>
+    <p id="email"></p>
+    <p id="mobile">Helo</p>
+    <p id="country"></p>
+    <p id="gender"></p>
+    <p id="hobbies"></p>
+   
+
+
+
+    <script>
+
+        window.onload=myFunc(); 
+        function myFunc(){
+        
+        document.getElementById("name").innerHTML=sessionStorage.getItem("name");
+        document.getElementById("email").innerHTML=sessionStorage.getItem("email");
+        document.getElementById("mobile").innerHTML=sessionStorage.getItem("mobile");
+        document.getElementById("country").innerHTML=sessionStorage.getItem("country");
+        document.getElementById("gender").innerHTML=sessionStorage.getItem("gender");
+      
+        document.getElementById("hobbies").innerHTML=sessionStorage.getItem("hobbies");
+        }
+    </script>
+    
+</body>
+</html>

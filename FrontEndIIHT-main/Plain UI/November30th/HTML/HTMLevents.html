@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+</head>
+<body onmousemove="myMouseMove(e)"  id="abc">
+
+
+    <div id="mouseMove"></div>
+
+    <form id="myForm">
+        <p id="colorIt" ondblclick="">Change Color</p>
+        Username: <input type="text"  name="username" id="name" placeholder="Enter Username" style="margin: 1px;"> <br>
+        Password: <input type="password" name="pass" id="password" placeholder="Enter Password" style="margin: 1px;"> <br>
+            
+        <input type="submit" id="button" value="Submit" />
+        
+
+    </form>
+
+    <p id="para">
+
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+        Nam fugiat velit deserunt repellendus quo ipsam, distinctio magni fuga non autem voluptates vero odio quaerat.
+         Molestiae enim alias illo vitae error.
+    </p>
+
+
+    <audio src="../../November28th/HTML/Oo Antava..Oo Oo Antava song.mp3" controls id="audioCheck"></audio>
+
+<br>
+    <video src="" controls id="videoCheck"></video>
+
+
+
+
+    <script>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        let f=document.getElementById("para");
+        f.addEventListener("click",paraC,true);
+        function paraC(){
+            f.style.color="red";
+        }
+
+
+
+        let g=document.getElementById("abc");
+        g.addEventListener("mousemove",myMouseMove,true);
+
+
+let c=document.getElementById("mouseMove");
+        function myMouseMove(e){
+           let a= e.clientX;
+            let b=e.clientY;
+           var h="X"+a+"Y"+b;
+           c.innerHTML=h;
+
+        }
+
+
+
+        let x=document.getElementById("myForm");
+        x.addEventListener("focus",focusF,true);
+        x.addEventListener("blur",blurB,true);
+
+        let y=document.getElementById("colorIt");
+        y.addEventListener("dblclick",checkIt,true);
+
+        function checkIt(){
+            y.style.color="red";
+            y.style.border="1px solid black";
+        }
+
+
+
+        function focusF(){
+            document.getElementById("name").style.backgroundColor="red";
+        }
+
+        function blurB(){
+            document.getElementById("name").style.backgroundColor="green";
+        }
+
+
+
+
+
+
+
+        let aud=document.getElementById("audioCheck");
+
+        aud.addEventListener("error",errorH,true);
+        aud.addEventListener("canplay",canplayP,true);
+
+        function errorH(){
+            alert("Error Occured");
+        }
+
+        function canplayP(){
+            aud.style.backgroundColor="green";
+            aud.style.border="1px solid red";
+
+        }
+
+            let vid=document.getElementById("audioCheck");
+
+            vid.addEventListener("error",errorHV,true);
+            vid.addEventListener("canplay",canplayVP,true);
+
+            function errorHV(){
+            alert("Error Occured");
+                }
+
+            function canplayPV(){
+                alert("Can Play");
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

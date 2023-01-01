@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+<script>
+    let ws=null;
+//     ws.addEventListener('open',()=>{console.log('we are connected');
+//     ws.send('hey, how are you');
+// });
+
+ function check(){
+    if(ws!=null) return false;
+    console.log('starting');
+    ws= new WebSocket('ws://localhost:8002');
+    ws.addEventListener('open',()=>{
+        console.log('we are connected');
+    });
+
+    return false;
+ }
+  
+ function stop(){
+
+    if(ws==null) {return false;}
+
+
+    console.log('Client Disconnected');
+    ws.close();
+    ws.addEventListener('close',()=>{
+        console.log("Server Stopped");
+    });
+    
+    return false;
+
+   
+
+ }
+
+ if(ws!=null)
+ ws.addEventListener('message',()=>{
+    console.log("message received");
+ });
+
+ if(ws!=null)
+ ws.addEventListener('error',()=>{
+    console.log("error received");
+ });
+
+
+
+
+
+</script>
+</head>
+<body>
+    <h1>hello</h1>
+
+    <button id="button1" onclick="return check()">Start </button>
+    <button id="button2" onclick="return stop()">End</button>
+    
+</body>
+</html>

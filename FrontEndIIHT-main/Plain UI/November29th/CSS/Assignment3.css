@@ -1,0 +1,28 @@
+th{
+    background-color: yellow;
+}
+footer{
+    text-align: center;
+}
+
+section{
+    border: 1px solid black;
+    width: 6cm;
+    margin-left: 500px;
+}
+table tr td,th{
+    border: 1px solid black;
+    
+}
+footer{
+    font-weight: bold;
+    border: 1px solid black;
+    margin: 2px;
+    width: 97%;
+    
+}
+
+h2{
+    margin-left: 540px;
+    margin-bottom: 0px;
+}

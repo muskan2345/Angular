@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="number" name="" id="firstNum" value="0"> + <input type="number" name="" id="secondNum" value="0">= <span id="result" value="0"></span>
+    
+    <script>
+
+        let a=document.getElementById("firstNum");
+        let b=document.getElementById("secondNum");
+      
+
+        a.addEventListener("keyup",sumIt,true);
+        b.addEventListener("keyup",sumIt,true);
+
+        function sumIt(){
+            let c=parseInt(a.value);
+            let d=parseInt(b.value);
+            let s=0;
+          
+            if(Number.isInteger(c))
+            s=s+c;
+            if(Number.isInteger(d))
+            s=s+d;
+
+            document.getElementById("result").innerText=(s);
+        }
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label for=""><h3>Select one of the fruit listed below</h3></label>
+    <select   name="" id="fruits">
+        <option value="" id="apple">Apple</option>
+        <option value="" id="mango">Mango</option>
+        <option id="banana">Banana</option>
+        <option id="orange">Grapes</option>
+    </select>
+
+
+    <h4>Your Favourite Fruit on the basis of above choice is</h4>
+    <p id="result"></p>
+
+
+    <h4>CheckBox</h4>
+    <input type="checkbox" name="" id="checkBox">
+    <p id="checkBoxResult"></p>
+     
+</body>
+
+    <script>
+
+        let check=document.getElementById("checkBox");
+        check.addEventListener("change",checkBB,true);
+
+        function checkBB(){
+            if(check.checked){
+                document.getElementById("checkBoxResult").innerHTML="on";
+            }else{
+                document.getElementById("checkBoxResult").innerHTML="off";
+            }
+        }
+
+
+
+        let fruit=document.getElementById("fruits");
+        fruit.addEventListener("change",selectF,true);
+        let res=document.getElementById("result");
+        function selectF(){
+            if(document.getElementById("apple").selected)
+            res.innerHTML="Apple";
+            if(document.getElementById("mango").selected)
+            res.innerHTML="Mango";
+            if(document.getElementById("banana").selected)
+            res.innerHTML="Banana";
+            if(document.getElementById("orange").selected)
+            res.innerHTML="Orange";
+        }
+
+
+
+
+    </script>
+
+
+
+</html>

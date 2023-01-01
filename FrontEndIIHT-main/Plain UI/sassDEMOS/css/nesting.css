@@ -1,0 +1,12 @@
+.div h1 {
+  color: yellow;
+  background-color: blue;
+}
+.div .div2 h3 {
+  color: green;
+  background-color: black;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=nesting.css.map */

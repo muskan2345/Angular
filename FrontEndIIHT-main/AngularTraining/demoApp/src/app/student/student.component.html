@@ -1,0 +1,134 @@
+<p>student works!</p>
+
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <div class="form-group" id="main">
+    
+    <p>
+
+        <label for="id">Id</label>
+        <input  class="form-control" type="text" name="id" value="id" id="id" formControlName="id" required>
+    </p>
+    <div *ngIf="id">
+        <div *ngIf="!id.valid && (id.touched || id.dirty)">
+            <div [hidden]="!id.errors?.['required']">
+                Id is required
+            </div>
+        </div>
+    </div>
+
+    <p>
+
+        <label for="name">Name</label>
+        <input  class="form-control"type="text" name="name" value="name" id="name" formControlName="name">
+    </p>
+        <div *ngIf="name">
+            <div *ngIf="!name.valid && (name.touched || name.dirty)">
+                <div [hidden]="!name.errors?.['required']">
+                    Name is required
+                </div>
+            </div>
+        </div>
+   
+   
+    <p>
+
+        <label for="email">Email</label>
+        <input class="form-control" type="email" name="email" value="email" id="email" formControlName="email">
+    </p>
+        <!-- <div *ngIf="email">
+            <div *ngIf="!email.valid && (email.touched || email.dirty)">
+                <div [hidden]="!email.errors?.['required']">
+                    Email is required
+                </div>
+            </div>
+        </div>
+    -->
+    
+
+    <p>
+     
+            Gender
+        
+        <br>
+        <!-- <label for="male">Male</label>
+        <input type="radio" name="male" id="male" value="male" formControlName="gender"> 
+        <label for="male">FeMale</label>
+        <input type="radio" name="female" id="female" value="female" formControlName="gender"> -->
+       
+        <input type="radio" id="male" name="male" value="male" formControlName="gender" >
+
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="female" value="female" formControlName="gender">
+
+        <label for="female">Female</label><br>
+   
+    </p>
+    <div *ngIf="gender">
+        <div *ngIf="!gender.valid && (gender.touched || gender.dirty)">
+            <div [hidden]="!gender.errors?.['required']">
+                Gender is required
+            </div>
+        </div>
+    </div>
+
+
+    <div  formControlName="address">
+
+    
+
+        <label for="city">city</label>
+        <input class="form-control" type="text" name="city"  id="city" formControlName="city" >
+        <!-- <div *ngIf="city">
+            <div *ngIf="!city.valid && (city.touched || city.dirty)">
+                <div [hidden]="!city.errors?.['required']">
+                    Name is required
+                </div>
+            </div>
+        </div> -->
+   
+    
+
+    <!-- <p> -->
+
+        <label for="state">State</label>
+        <input class="form-control"  type="text" name="state"  id="state" formControlName="state" >
+        <!-- <div *ngIf="city">
+            <div *ngIf="!state.valid && (state.touched || state.dirty)">
+                <div [hidden]="!state.errors?.['required']">
+                    Name is required
+                </div>
+            </div>
+        </div> -->
+   
+    <!-- </p> -->
+
+    <!-- <p> -->
+
+        <label for="country">country</label>
+        <input  class="form-control" type="text" name="country"  id="country" formControlName="country" >
+        <!-- <div *ngIf="city">
+            <div *ngIf="!country.valid && (country.touched || country.dirty)">
+                <div [hidden]="!country.errors?.['required']">
+                    Name is required
+                </div>
+            </div>
+        </div> -->
+   
+    <!-- </p> -->
+    </div>
+</div>
+
+
+
+
+
+
+
+<button type="submit" [disabled]="studentForm.invalid">Submit</button>
+
+
+</form>
+
+
+{{studentForm.valid}}

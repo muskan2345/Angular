@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>     
+        table{
+            border: 1px solid black;
+           
+        }
+    </style>
+
+
+</head>
+<body>
+   
+    
+    <table  id="table">
+        <tr>
+            <th>S.No</th>
+            <th>Vehicle</th>
+        </tr>
+        <tr>
+            <td>01</td>
+            <td>Maruti Swift</td>
+        </tr>
+        <tr>
+            <td>02</td>
+            <td>Maruti Swift Dzire</td>
+        </tr>
+        <tr>
+            <td>03</td>
+            <td>Maruti Grand Vitara</td>
+        </tr>
+
+
+    </table>
+    <button  id="check" onclick="showtable()">Hide/Show</button>
+
+
+    <script>
+
+            var y=document.getElementById("check");
+            y.addEventListener("click",showTable,true);
+
+        function showTable(){
+           
+
+        var x=document.getElementById("table");
+        if(x.style.display==="none"){
+            x.style.display= "block"
+        }else{
+            x.style.display="none";
+        }
+
+
+        }
+    </script>
+
+</body>
+</html>

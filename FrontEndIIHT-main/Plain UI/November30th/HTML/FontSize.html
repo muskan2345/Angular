@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<p>The KeyPressFunction</p>
+    <textarea id="keyPP"  style="border: 1px solid black; height: 20px;"></textarea>
+
+<br>
+    <font size="1">Font Size 1</font><br>
+    <font size="2">Font Size 2</font><br>
+    <font size="3">Font Size 3</font><br>
+    <font size="4">Font Size 4</font><br>
+
+    <p><b>resizing just + and -</b></p>
+
+    <font size="-1">Font Size -1</font><br>
+    <font size="+1">Font Size +1</font><br>
+    <font size="+2">Font Size +2</font><br>
+    <font size="+3">Font Size +3</font><br>
+    <font size="+4">Font Size +4</font><br>
+
+
+   
+    
+   
+<script>
+
+
+
+    let a=document.getElementById("keyPP");
+    a.addEventListener("keydown",keyPPP,true);
+   a.addEventListener("keyup",keyPPPP,true);
+    function keyPPP(){
+       
+        a.style.backgroundColor="red";
+      
+    }
+    function keyPPPP(){
+        a.style.backgroundColor="yellow";
+    }
+
+
+</script>
+
+    
+</body>
+</html>

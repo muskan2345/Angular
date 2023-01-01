@@ -1,0 +1,35 @@
+
+section{
+    border: 2px solid black;
+    width: 10cm;
+    height: 7cm;
+}
+table{
+    border: 4px solid grey;
+    margin: 30px;
+    margin-left: 70px;
+    margin-bottom: 70px;
+    margin-right:83px ;
+}
+h2{
+    text-align: center;
+    border: 4px solid grey;
+    margin-bottom: -34px;
+    margin-left: 70px;
+    margin-right: 69px;
+    background-color: yellow;
+    
+}
+th{
+    background-color: pink;
+}
+table tr th,td{
+    border: 1px solid grey;
+    
+}
+td:nth-child(1){
+    background-color: green;
+}
+td:nth-child(7){
+    background-color: aqua;
+}

@@ -1,0 +1,18 @@
+div {
+    height: 100px;
+    width: 100px;
+    background-color: skyblue;
+    margin: 60px auto;
+    animation: skyblue-to-pink 2s ease infinite;
+    
+  }
+  
+  @mixin animation-mixin($name, $color1, $color2) {
+    @keyframes #{$name} {
+      0% {background-color: $color1;}
+      50% {background-color: $color2;}
+      100% {background-color: $color1;}
+    }
+  }
+  
+  @include animation-mixin(skyblue-to-pink, skyblue, pink);

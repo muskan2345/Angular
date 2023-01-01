@@ -1,0 +1,35 @@
+h2{
+    text-align: center;
+   
+    background-color: grey;
+    margin-bottom: -1px;
+}
+
+
+@media (max-width: 600px) {
+    section {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+}
+
+
+section{
+    display: flex;
+   
+}
+
+nav{
+    flex: 1;
+    background-color: blue;
+}
+article{
+    flex: 3;
+    background-color: greenyellow;
+}
+footer{
+    text-align: center;
+   
+    
+    background-color: grey;
+}

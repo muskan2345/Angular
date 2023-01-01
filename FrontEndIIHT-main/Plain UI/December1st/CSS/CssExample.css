@@ -1,0 +1,12 @@
+#head{
+    background-color: blue;
+    color: antiquewhite;
+    height: 50px;
+    padding-top: 3px;
+}
+#color{
+    color: red;
+}
+#border{
+    border: 1px dotted black;
+}

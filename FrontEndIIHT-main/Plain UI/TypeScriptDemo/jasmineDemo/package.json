@@ -1,0 +1,17 @@
+{
+  "name": "jasminedemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type":"commonjs",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.11.15",
+    "jasmine": "^4.5.0"
+  }
+}
