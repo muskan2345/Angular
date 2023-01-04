@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EmployeeService } from '../employee/employee';
-import { Animal, AnimalService } from './animal';
+import { AnimalService } from '../../../shared/animal.service';
+import { Animal } from './animal';
 
 @Component({
   selector: 'app-animal-detail',
@@ -29,7 +30,7 @@ export class AnimalDetailComponent {
           }
   
          if(this.service.getAnimalById(this.id)){
-               this.animal = this.service.getAnimalById(this.id);
+              // this.animal = this.service.getAnimalById(this.id);
          }
        })
   

@@ -2,7 +2,7 @@ import { formatNumber } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TitleStrategy } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { EventService } from '../shared/events.service';
+import { EventService } from '../../../shared/events.service';
 
 import { IEvent } from "./event";
 

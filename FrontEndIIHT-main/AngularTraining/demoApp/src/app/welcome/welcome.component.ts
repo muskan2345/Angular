@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoggingServie } from 'src/app/shared/logging.service';
+import { LoggingServie } from 'shared/logging.service';
 
 @Component({
   selector: 'app-welcome',

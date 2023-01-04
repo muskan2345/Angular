@@ -34,7 +34,7 @@
 </html> -->
 
 
-
+<!-- 
   <table class="table table-dark">
     <thead>
       <tr>
@@ -50,5 +50,96 @@
             <td><a [routerLink]="['animal',animal.id]">{{animal.name}}</a></td>
         </tr>
     </tbody>
+<!-- 
+    <button >Add Animal</button> -->
+
+    <!-- <div class="card-footer">
+        <div class="col-md-4 text-right">
+          <button class="btn btn-primary"
+          (click)="newAnimal()">Add a Animal</button>
+    
+        </div>
+      </div>
+    
   </table>
-  <router-outlet></router-outlet>
+  <router-outlet></router-outlet> --> 
+
+
+  <div class="card">
+    <div class="card-header">
+        {{pageTitle}}
+
+      </div>
+
+    <div class="card-body">
+
+      <input type="text" (keypress)="filterData(filterValue)"  [(ngModel)]="filterValue"/>
+
+      <h1>Filtered as per  {{filterValue}}</h1>
+
+    <div class="table-responsive">
+        <table *ngIf="animals.length;else elseBlock"   class="table  ">
+
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Category</th>
+                 <th scope="col">Brief Description</th>
+                 <th scope="col">Color</th>
+                  <!-- <th scope="col">Physical Strength</th> -->
+                  <th scope="col">Image</th>
+            
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let animal of filteredAnimals;let i = index"
+
+                  >
+                  <td>{{i+1}}</td>
+                    <td (click)="animalSelected(animal)">
+                     {{animal.name|uppercase}}
+                    </td>
+                    <td>{{animal.category}}</td>
+                   <td>{{animal.briefDescription}}</td>
+                   <td>{{animal.color}}</td>
+            
+                     <!--<td>{{prod.rating}}</td>-->
+
+                     <!-- <td><app-star
+                        [rating]="animal.physicalStrength"
+                       [title]="animal.physicalStrength"
+                       (ratingClicked)="onRatingClicked($event)"></app-star></td>
+                     <td> -->
+                      <img 
+                      [src]='animal.image'
+                      [title]="animal.name"
+                      height="50px"
+                      width="50px"
+                      alt="some animal image"
+                      />
+                     <!-- <td><button class="btn btn-primary"
+                      (click)="getAnimalById(animal.id)">Get Animal</button>
+                       </td> -->
+                      
+                  </tr>
+              </tbody>
+            </table>
+
+            <ng-template #elseBlock><h1>No animals</h1></ng-template>
+
+    </div>
+
+
+    </div>
+    <div class="card-footer">
+      <div class="col-md-4 text-right">
+        <button class="btn btn-primary"
+        (click)="newAnimal()">Add a Animal</button>
+
+      </div>
+    </div>
+ </div>
+<router-outlet></router-outlet>
