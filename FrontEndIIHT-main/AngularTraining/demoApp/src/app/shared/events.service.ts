@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { IEvent } from "../src/app/event-bootcamp/event";
+import { IEvent } from "../event-bootcamp/event";
 
 
 @Injectable({

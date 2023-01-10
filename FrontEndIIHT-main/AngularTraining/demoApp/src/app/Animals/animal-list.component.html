@@ -113,16 +113,19 @@
                        [title]="animal.physicalStrength"
                        (ratingClicked)="onRatingClicked($event)"></app-star></td>
                      <td> -->
-                      <img 
+                     <td> <img 
                       [src]='animal.image'
                       [title]="animal.name"
                       height="50px"
                       width="50px"
                       alt="some animal image"
-                      />
-                     <!-- <td><button class="btn btn-primary"
-                      (click)="getAnimalById(animal.id)">Get Animal</button>
-                       </td> -->
+                      /></td>
+                      <!-- <td><button class="btn btn-danger"
+                      (click)="deleteAnimal(animal.id)">Delete Animal</button>
+                       </td>  -->
+                       <td><button class="btn btn-primary"
+                        (click)="updateAnimal(animal)">Edit </button>
+                         </td> 
                       
                   </tr>
               </tbody>

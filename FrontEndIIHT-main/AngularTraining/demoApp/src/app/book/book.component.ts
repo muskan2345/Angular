@@ -1,11 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+//import {MatDatepickerModule} from '@angular/material';
+//import { MatDatepickerModule, MatNativeDateModule } from './material-module/material.module';
+// import { MatDatepickerModule } from 
+//     '@angular/material/datepicker';
+// import { MaterialModule } from '../material-module/material.module';
 
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
-  styleUrls: ['./book.component.css']
+  styleUrls: ['./book.component.css'],
+  
 })
+
+// @NgModule({
+  
+//   imports: [MatDatepickerModule,MaterialModule]
+  
+// })
 export class BookComponent implements OnInit{
   bookForm!: FormGroup;
   constructor(private formBuilder: FormBuilder) {}
@@ -32,32 +44,7 @@ export class BookComponent implements OnInit{
   }
 
 
-  // publisher():FormArray{
-
-  //   return this.bookForm.get('publisher') as FormArray;
-  // }
-
-  // newPublisher():FormGroup{
-
-
-  //   return this.formBuilder.group({
-  //     publisherName:'',
-  //     email:''
-
-  //   })
-  // }
-
-
-  // addPublisher(){
-
-  //   this.publisher().push(this.newPublisher())
-  // }
-
-  // removePublisher(programIndex:number){
-
-  //   this.publisher().removeAt(programIndex);
-  // }
-
+  
 
   publisher():FormArray{
 

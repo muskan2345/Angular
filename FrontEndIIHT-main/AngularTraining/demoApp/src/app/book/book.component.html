@@ -1,12 +1,16 @@
+
+
+
+
 <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
 
     <h1>Book Form</h1>
     <div class="form-group">
-        <p>
-            <label for="id">Id</label>
-            <input class="form-control" type="text" name="id" id="id" formControlName="id">
-
-        </p>
+        <mat-form-field>
+            <mat-label for="id">Id</mat-label>
+            <!-- <input class="form-control" type="text" name="id" id="id" formControlName="id"> -->
+            <input matInput>
+        </mat-form-field>
         <div *ngIf="id">
             <div *ngIf="!id.valid && (id.dirty || id.touched)">
 
@@ -20,11 +24,11 @@
         </div>
 
 
-        <p>
-            <label for="title">Title</label>
-            <input class="form-control" type="text" name="title" id="title" formControlName="title">
-
-        </p>
+        <mat-form-field>
+            <mat-label for="title">Title</mat-label>
+            <!-- <input class="form-control" type="text" name="title" id="title" formControlName="title"> -->
+v              <input matInput>
+        </mat-form-field>
         <div *ngIf="title">
             <div *ngIf="!title.valid && (title.dirty || title.touched)">
 
@@ -36,23 +40,29 @@
             </div>
         </div>
 
-        <p>
+        
 
             <label for="date"> Date</label>
 
-            <input class="form-control" type="date" name="date" id="date" required formControlName="date">
-        </p>
-
+         <mat-form-field>
+            <input matInput [matDatepicker]="pickeryear" 
+            placeholder="Choose a date">
+            <mat-datepicker-toggle  [for]="pickeryear">
+            </mat-datepicker-toggle>
+            <mat-datepicker #pickeryear startView="year"></mat-datepicker>
+        </mat-form-field>
+        
+        
 
 
 
         <div formGroupName="author">
 
-            <p>
+            <mat-form-field>
                 <label for="name">Author Name</label>
                 <input class="form-control" type="text" name="name" id="name" formControlName="name">
 
-            </p>
+            </mat-form-field>
             <div *ngIf="name">
                 <div *ngIf="!name.valid && (name.dirty || name.touched)">
 
@@ -68,11 +78,11 @@
 
 
 
-            <p>
+            <mat-form-field>
                 <label for="email">Email</label>
                 <input class="form-control" type="email" name="email" id="email" formControlName="email">
 
-            </p>
+            </mat-form-field>
             <div *ngIf="email">
                 <div *ngIf="!email.valid && (email.dirty || email.touched)">
 
@@ -85,39 +95,7 @@
 
 
 
-            <!-- <div class="form-control">
-                <div formArrayName="publisher">
-
-
-                    <div class="form-control" *ngfor="let publisher of publisher().controls;let prgIndex=index">
-
-
-                        <div [formGroupName]="prgIndex">
-
-                            {{prgIndex}} <br>
-
-                            Publisher Name: <br>
-
-                            <input class="form-control" type="text" name="publisherName"
-                                formControlName="publisherName">
-
-                            email:
-                            <input class="form-control" type="email" name="email" formControlName="email">
-
-
-
-                            <button (click)="removePublisher(prgIndex)">Remove Publisher</button>
-
-
-                        </div>
-                    </div>
-                </div>
-
             
-                              <!-- <button (click)="addPublisher()">Add Program</button> -->
-
-         <!-- </div>  -->
-
 
          <div formArrayName="publisher">
 
@@ -142,19 +120,28 @@
             </div>
             <button class="btn btn-primary" (click)="addPublisher()">Add Publisher</button>
         
-          </div>
-  
-        <!-- </div> -->
-  
-       
-
-
-
-         
-
-
+        </div>
 
 
         <button type="submit" [disabled]="!bookForm.valid">Submit</button>
     </div>
-</form>
+
+    
+
+
+
+<!-- <mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select>
+      <mat-option value="one">First option</mat-option>
+      <mat-option value="two">Second option</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Textarea</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field> -->

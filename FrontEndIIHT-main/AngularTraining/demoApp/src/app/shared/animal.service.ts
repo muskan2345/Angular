@@ -30,7 +30,7 @@ export class AnimalService{
 
     ///api/products --will be resolved from in-memory web api -- /api/products
 
- private url="api/animals";
+  url="api/animals";
 
  animals:Animal[]=[];
 
@@ -276,7 +276,7 @@ changeSelectedAnimal(selectedAnimal:Animal | null):void{
 
 
 
-  deleteAnimal(id:number):Observable<{}>{
+  deleteAnimal(id:number){
 
     const headers= new HttpHeaders({'Content-Type':'application/json'});
 
@@ -288,7 +288,7 @@ changeSelectedAnimal(selectedAnimal:Animal | null):void{
 
 
 
-    return this.http.delete<Animal>(url,{headers})
+    return this.http.delete(url,{headers})
 
     .pipe(
 

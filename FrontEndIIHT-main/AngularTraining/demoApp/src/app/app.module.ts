@@ -16,7 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EventBootComponent } from './event-bootcamp/event-boot.component';
 import { HttpClientInMemoryWebApiModule, InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { DBServie } from '../../shared/dataBaseService';
+import { DBServie } from './dataBaseService';
 //import { ProductAddComponent } from './Product/product-add.component';
 import { RepeatDataPipe } from './pipe/repeat.pipe';
 import { EmployeeComponent } from './employee/employee.component';
@@ -33,14 +33,32 @@ import { AnimalDetailComponent } from './Animals/animal-detail.component';
 import { SuggestionsComponent } from './employee/suggestions.component';
 import { AnimalAddComponent } from './Animals/animal-add.component';
 import { CardsComponent } from './cards/cards.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effect';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material-module/material.module';
+import { MatDatepickerModule } from 
+    '@angular/material/datepicker';
+    import { MatFormFieldModule } from 
+   '@angular/material/form-field';
+import { FormComponent } from './form/form.component';
+//import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { Store} from '@ngrx/store';
+import { ProductListComponent } from './products/product-list.component';
+import { ProductAddComponent } from './products/product-add.component';
+
+//import { MatDatepickerModule } from './material-module/material.module';
+//import { ProductComponent } from './product/product.component';
+//import { ProductListComponent } from './product/product-list.component';
 
 
 
-const appRoutes:Routes=[
+// const appRoutes:Routes=[
 
-  {}
+//   {}
 
-];
+// ];
 
 
 @NgModule({
@@ -70,7 +88,14 @@ const appRoutes:Routes=[
     SuggestionsComponent,
     GetValidatorDirective,
     AnimalAddComponent,
-    CardsComponent,
+   CardsComponent,
+   FormComponent,
+   ProductListComponent,
+   ProductAddComponent,
+    
+   // ProductComponent,
+    //ProductListComponent,
+    //TodoPageRoutingModule
    
 
     
@@ -83,9 +108,19 @@ const appRoutes:Routes=[
     HttpClientModule,
     NgbModule,
     RouterModule,
+    StoreModule.forRoot({}),
     HttpClientInMemoryWebApiModule.forRoot(DBServie),
+    EffectsModule.forRoot(AppEffects),
+    StoreModule.forRoot({}),
+    //StoreModule.provideStore(reducer, initialState),
+    BrowserAnimationsModule,
+    MaterialModule,
+    // StoreDevtoolsModule.instrument(),
+    
+   // MatDatepickerModule 
+   // MatDatepickerModule
   ],
-  providers: [],
+  providers: [ MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

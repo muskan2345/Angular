@@ -1,7 +1,9 @@
 import { Injectable } from "@angular/core";
 import {InMemoryDbService, RequestInfo} from 'angular-in-memory-web-api';
 import { Observable } from "rxjs";
-import { IEvent } from "../src/app/event-bootcamp/event";
+import { Animal, Category } from "./Animals/animal";
+import { IEvent } from "./event-bootcamp/event";
+import { Todo } from "./todo/todo.model";
 
 
 @Injectable({
@@ -10,6 +12,13 @@ import { IEvent } from "../src/app/event-bootcamp/event";
 export class DBServie implements InMemoryDbService {
 
     createDb() {
+
+      const todos: Todo[]=[{id:'111',content:'hello'},{id:'222',content:'angular web db'}];
+      const animal:Animal[]=[{id:1,name:"dog",briefDescription:"dfre",image:"fefwef",physicalStrength:3,color:"red",category:Category.domestic}];
+
+
+        
+      
         
 //      const events: IEvent[]=[
 //         {
@@ -232,6 +241,6 @@ let animals=[
   }
 ]
 
-return {animals};
+return {animal,todos};
 }
 }

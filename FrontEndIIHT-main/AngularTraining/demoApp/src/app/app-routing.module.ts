@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 //import { ProductComponent } from './Product/product.component';
 import { StudentComponent } from './student/student.component';
 import {AnimalAddComponent} from './Animals/animal-add.component';
+import { FlagListComponent } from './flats/flag-list.component';
+import { FormComponent } from './form/form.component';
 // import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 const routes: Routes = [
 {path:'',component:HomeComponent},  
@@ -37,12 +39,12 @@ children:[
 
 // },
 
-{
-  path:'animals',
-  component:AnimalsListComponent,
-  //canActivate:const [AuthGuard],
-  children:[{path:'addAnimal',component:AnimalAddComponent}]
-}
+// {
+//   path:'animals',
+//   component:AnimalsListComponent,
+//   //canActivate:const [AuthGuard],
+//   children:[{path:'addAnimal',component:AnimalAddComponent}]
+// },
     
      // {path:'animal/:id',component:AnimalDetailComponent},
       //{path:'suggestion',component:EmployeeDetailComponent}
@@ -50,6 +52,24 @@ children:[
   
 
  //{path:'animal/:id',component:AnimalDetailComponent}
+    {path:'todo',loadChildren:()=>import('./todo/todo.module').then((m)=>m.TodoModule)},
+
+    //{path:'animal',loadChildren()=>import('./animal/animal.module').then(m)=>m.AnimalModule}
+    {
+      path:'animals',
+      component:AnimalsListComponent,
+      //canActivate:[AuthGuard],
+      loadChildren:()=>import('../app/animal/animal.module').then(m=>m.AnimalModule)
+     },
+     {
+      path:'flat',component:FlagListComponent
+     },
+     {
+      path:'form',
+      component:FormComponent ,
+      // canActivate:[AuthGuard]
+    
+    }
 
 
 ];

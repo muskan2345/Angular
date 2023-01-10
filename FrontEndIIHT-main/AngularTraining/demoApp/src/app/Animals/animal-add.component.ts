@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { AnimalService } from '../../../shared/animal.service';
-import { GenericValidator } from '../../../shared/genericvalidator';
+import { Observable, Subscription } from 'rxjs';
+import { AnimalService } from '../shared/animal.service';
+import { GenericValidator } from '../shared/genericvalidator';
 import { Animal,Category } from './animal';
+import {  Store } from '@ngrx/store';
+import * as AppState from '../state/app.state';
+import * as AnimalActions from '../state/animals/animal.actions';
+import { select } from '@ngrx/store';
 
 @Component({
   selector: 'app-animal-add',
@@ -16,6 +20,7 @@ export class AnimalAddComponent {
   pageTitle='Edit Animal';
   errorMessage='';
 
+    animal$!:Observable<Animal |null|undefined>;
   addAnimal!: FormGroup;
   animal!:Animal | null;
   sub!:Subscription;
@@ -23,6 +28,7 @@ export class AnimalAddComponent {
     private validationMessages!:{[key:string]:{[key:string]:string}};
 
     private genericValidator!:GenericValidator;
+    store: any;
 
     constructor(private formBuilder: FormBuilder,private router: Router, private animalService:AnimalService ) {
 
@@ -150,23 +156,28 @@ export class AnimalAddComponent {
 
       if(animal.id==0){
         console.log(animal.id)
-        this.animalService.createAnimal(animal).subscribe(
-          (resp)=>{
-            this.animalService.changeSelectedAnimal(resp);
-            console.log('AnimalAdd save animal method '+ resp);},
 
-          (err: string)=> {this.errorMessage=err;
-            console.log('AnimalAdd save animal method '+err);
-          }
+        this.store.dispatch(AnimalActions.createAnimal({animal}));
+        // this.animalService.createAnimal(animal).subscribe(
+        //   (resp)=>{
+        //     this.animalService.changeSelectedAnimal(resp);
+        //     console.log('AnimalAdd save animal method '+ resp);},
 
-        );
+        //  (err: string)=> {this.errorMessage=err;
+         //   console.log('AnimalAdd save animal method '+err);
+        //  }
+
+       // );
 
      }
      else{
-      console.log(animal.id)
-      this.animalService.updateAnimal(animal).subscribe(
-        (       resp: any)=>this.animalService.changeSelectedAnimal(resp),
-        (       err: string)=>this.errorMessage=err      );
+      // console.log(animal.id)
+      // this.animalService.updateAnimal(animal).subscribe(
+      //   ( resp: any)=>this.animalService.changeSelectedAnimal(resp),
+      //   ( err: string)=>this.errorMessage=err      );
+
+      {this.store.dispatch(AnimalActions.updateAnimal({ animal }));
+
 
      }
       }
@@ -176,27 +187,32 @@ export class AnimalAddComponent {
 
   }
 //validating on blur ,if user tabs out through the form fields
-  blur():void{
-  this.displayMessage=this.genericValidator.processMessages(this.addAnimal);
+  // blur():void{
+  // this.displayMessage=this.genericValidator.processMessages(this.addAnimal),
 
-  }
+  // }
 
-  deleteAnimal(animal:Animal):void{
-    if(animal && animal.id){
+  // AnimalActions.deleteAnimal(this.id:number):void{
+  //   if(animal && this.animal.id){
 
-      if(confirm(`Are you sure you want to delete ${animal.name} details`)){
+  //     if(confirm(`Are you sure you want to delete ${this.animal.name} details`)){
 
-        this.animalService.deleteAnimal(animal.id).subscribe(
-          ()=>this.animalService.changeSelectedAnimal(null),
-          (          err: string)=>this.errorMessage=err
-        );
-      }
-      else{
-        //no need to delete the product
-        this.animalService.changeSelectedAnimal(null)
-      }
-    }
+        
+  //       this.store.dispatch(AnimalActions.deleteAnimal({ AnimalId: this.animal.id }));
+  //       // this.animalService.deleteAnimal(animal.id).subscribe(
+  //       //   ()=>this.animalService.changeSelectedAnimal(null),
+  //       //   (          err: string)=>this.errorMessage=err
+  //       // );
+  //     }
+  //     else{
+  //       //no need to delete the product
+  //      // this.animalService.changeSelectedAnimal(null)
+  //      this.store.dispatch(AnimalActions.clearCurrentAnimal());
+     
+  //     }
+  //   }
 
-  }
+  // }
 
+}
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EmployeeService } from '../employee/employee';
-import { AnimalService } from '../../../shared/animal.service';
+import { AnimalService } from '../shared/animal.service';
 import { Animal } from './animal';
 
 @Component({
